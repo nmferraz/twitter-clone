@@ -26,19 +26,19 @@ export default function Home() {
 }
 
 export async function getServerSideProps(context) {
-  const trendingResults = await fetch("https://jsonkeeper.com/b/").then(
+  {/*const trendingResults = await fetch("https://jsonkeeper.com/b/").then(
     (res) => res.json()
   );
   const followResults = await fetch("https://jsonkeeper.com/b/").then(
     (res) => res.json()
-  );
+);*/}
   const providers = await getProviders();
   const session = await getSession(context);
 
   return {
     props: {
-      trendingResults,
-      followResults,
+      //trendingResults,
+      //followResults,
       providers,
       session,
     },
