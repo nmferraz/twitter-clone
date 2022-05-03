@@ -15,7 +15,7 @@ import {
   updateDoc,
 } from "@firebase/firestore";
 import { getDownloadURL, ref, uploadString } from "@firebase/storage";
-import dynamic from "next/dynamic";
+{/*import dynamic from "next/dynamic";*/}
 import { Picker } from "emoji-mart";
 import "emoji-mart/css/emoji-mart.css";
 
@@ -30,7 +30,14 @@ function Input() {
     if (loading) return;
     setLoading(true);
 
-    const docRef = await addDoc(collection(db, "posts"), {});
+    const docRef = await addDoc(collection(db, "posts"), {
+      //id: session.user.uid,
+      //username: session.user.name,
+      //userImg: session.user.image,
+      //tag: session.user.tag,
+      text: input,
+      timestamp: serverTimestamp(),
+    });
 
     const imageRef = ref(storage, `posts/${docRef.id}/image`);
 
@@ -38,7 +45,7 @@ function Input() {
       await uploadString(imageRef, selectedFile, "data_url").then(async () => {
         const downloadURL = await getDownloadURL(imageRef);
         await updateDoc(doc(db, "posts", docRef.id), {
-          image: downloadURL, 
+          image: downloadURL,
         });
       });
     }
