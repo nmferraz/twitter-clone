@@ -5,7 +5,7 @@ import { getProviders, getSession, useSession } from "next-auth/react";
 import Login from "../components/Login";
 import Modal from "../components/Modal";
 
-export default function Home() {
+export default function Home({ providers }) {
   const { data: session } = useSession();
   if (!session) return <Login providers={providers} />;
 
@@ -26,12 +26,14 @@ export default function Home() {
 }
 
 export async function getServerSideProps(context) {
-  {/*const trendingResults = await fetch("https://jsonkeeper.com/b/").then(
+  {
+    /*const trendingResults = await fetch("https://jsonkeeper.com/b/").then(
     (res) => res.json()
   );
   const followResults = await fetch("https://jsonkeeper.com/b/").then(
     (res) => res.json()
-);*/}
+);*/
+  }
   const providers = await getProviders();
   const session = await getSession(context);
 
