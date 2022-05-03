@@ -15,7 +15,9 @@ import {
   updateDoc,
 } from "@firebase/firestore";
 import { getDownloadURL, ref, uploadString } from "@firebase/storage";
-{/*import dynamic from "next/dynamic";*/}
+{
+  /*import dynamic from "next/dynamic";*/
+}
 import { Picker } from "emoji-mart";
 import "emoji-mart/css/emoji-mart.css";
 
@@ -77,7 +79,9 @@ function Input() {
 
   return (
     <div
-      className={`border-b border-gray-700 p-3 flex space-x-3 overflow-y-scroll scrollbar-hide`}
+      className={`border-b border-gray-700 p-3 flex space-x-3 overflow-y-scroll scrollbar-hide ${
+        loading && "opacity-60"
+      }`}
     >
       {/*eslint-disable-next-line @next/next/no-img-element*/}
       <img
