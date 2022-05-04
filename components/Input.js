@@ -20,8 +20,10 @@ import { getDownloadURL, ref, uploadString } from "@firebase/storage";
 }
 import { Picker } from "emoji-mart";
 import "emoji-mart/css/emoji-mart.css";
+import { useSession } from "next-auth/react";
 
 function Input() {
+  const { data: session } = useSession();
   const [input, setInput] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
   const filePickerRef = useRef(null);
@@ -85,7 +87,7 @@ function Input() {
     >
       {/*eslint-disable-next-line @next/next/no-img-element*/}
       <img
-        src={"https://github.com/nmferraz.png"}
+        src={session.user.image}
         alt=""
         className="h-11 w-11 rounded-full cursor-pointer"
       />

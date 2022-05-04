@@ -19,7 +19,7 @@ export default function Home({ providers }) {
         <Feed />
         {/*Widgets */}
 
-        {isOpen && <Modal />}
+        {/*Modal */}
       </main>
     </div>
   );
