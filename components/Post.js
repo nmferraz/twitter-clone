@@ -193,6 +193,13 @@ function Post({ id, post, postPage }) {
               </span>
             )}
           </div>
+
+          <div className="icon group">
+            <ShareIcon className="h-5 group-hover:text-[#1d9bf0]" />
+          </div>
+          <div className="icon group">
+            <ChartBarIcon className="h-5 group-hover:text-[#1d9bf0]" />
+          </div>
         </div>
       </div>
     </div>
