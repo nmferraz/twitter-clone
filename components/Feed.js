@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { SparklesIcon } from "@heroicons/react/outline";
 import { useEffect, useState } from "react";
 import Input from "./Input";
