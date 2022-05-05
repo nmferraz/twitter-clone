@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-undef */
 /* eslint-disable react-hooks/exhaustive-deps */
 import {
   collection,
@@ -18,8 +19,9 @@ import { db } from "../firebase";
 import { ArrowLeftIcon } from "@heroicons/react/solid";
 import Head from "next/head";
 import Comment from "../components/Comment";
+import Widgets from "../components/Widgets";
 
-function PostPage({ providers }) {
+function PostPage({ trendingResults, followResults, providers }) {
   const { data: session } = useSession();
   const [isOpen, setIsOpen] = useRecoilState(modalState);
   const [post, setPost] = useState();
@@ -47,7 +49,6 @@ function PostPage({ providers }) {
     [db, id]
   );
 
-  {/*eslint-disable-next-line react/jsx-no-undef*/}
   if (!session) return <Login providers={providers} />;
 
   return (
@@ -84,6 +85,10 @@ function PostPage({ providers }) {
             </div>
           )}
         </div>
+        <Widgets
+          trendingResults={trendingResults}
+          followResults={followResults}
+        />
 
         {isOpen && <Modal />}
       </main>
