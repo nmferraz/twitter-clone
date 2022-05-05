@@ -131,7 +131,7 @@ function Post({ id, post, postPage }) {
         )}
         <img
           src={post?.image}
-          alt={post?.text}
+          alt=""
           className="rounded-2xl max-h-[700px] object-cover mr-2"
         />
         <div
