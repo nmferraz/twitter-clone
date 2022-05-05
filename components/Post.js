@@ -25,9 +25,13 @@ import {
   query,
   setDoc,
 } from "@firebase/firestore";
+import { useRecoilState } from "recoil";
+import { modalState, postIdState } from "../atoms/modalAtom";
 
 function Post({ id, post, postPage }) {
   const { data: session } = useSession();
+  const [isOpen, setIsOpen] = useRecoilState(modalState);
+  const [postId, setPostId] = useRecoilState(postIdState);
   const [comments, setComments] = useState([]);
   const [likes, setLikes] = useState([]);
   const [liked, setLiked] = useState(false);
@@ -122,7 +126,7 @@ function Post({ id, post, postPage }) {
         )}
         <img
           src={post?.image}
-          alt=""
+          alt={post?.text}
           className="rounded-2xl max-h-[700px] object-cover mr-2"
         />
         <div
